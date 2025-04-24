@@ -34,6 +34,8 @@ export class Busca extends Component {
                 return
             }
 
+            this.props.onBuscaRealizada(data)
+
             console.log(data)
         } catch (error) {
             alert('Erro ao buscar o CEP. Verifique sua conexão ou tente novamente mais tarde.')

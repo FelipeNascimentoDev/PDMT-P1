@@ -5,8 +5,12 @@ import LocalidadeLista from './LocalidadeLista'
 import 'primereact/resources/themes/viva-dark/theme.css';
 class App extends React.Component {
 
-  onBuscaRealizada = (termo) => {
-    alert(termo)
+  state = {
+    resultadoBusca: null
+  }
+
+  onBuscaRealizada = (dados) => {
+    this.setState({ resultadoBusca: dados })
   }
 
   render(){
@@ -14,10 +18,11 @@ class App extends React.Component {
       <div className='grid justify-content-center'>
           <div className="col-12">
             <Busca
-              onBuscaRealizada={this.onBuscaRealizada}/>
+              onBuscaRealizada={this.onBuscaRealizada} />
           </div>
           <div className="col-12">
-            <LocalidadeLista/>
+            <LocalidadeLista
+              dados={this.state.resultadoBusca} />
           </div>
       </div>
     )
