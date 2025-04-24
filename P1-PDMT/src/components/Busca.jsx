@@ -53,10 +53,11 @@ export class Busca extends Component {
                         onChange={this.onTermoAlterado}
                         value={this.state.termoDeBusca}
                     />
+                    <br /> 
                     <br />
                     <Button
                         className='mt-3'
-                        label='OK'
+                        label='OK' style={{ width: '230px', height: '50px' }}
                         outlined
                     />
                 </div>

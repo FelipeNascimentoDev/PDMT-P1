@@ -8,9 +8,17 @@ export class LocalidadeLista extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.dados && this.props.dados !== prevProps.dados) {
-      this.setState((prevState) => ({
-        consultas: [this.props.dados, ...prevState.consultas]
-      }))
+      this.setState(
+        (prevState) => ({
+          consultas: [this.props.dados, ...prevState.consultas]
+        }),
+        () => {
+          if (this.props.onEstadosAtualizados) {
+            const listaDeEstados = this.state.consultas.map(item => item.uf)
+            this.props.onEstadosAtualizados(listaDeEstados)
+          }
+        }
+      )
     }
   }
 
